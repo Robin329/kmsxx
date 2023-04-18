@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/tomba/kmsxx/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/tomba/kmsxx/actions/workflows/c-cpp.yml)
+[![Build Status](https://github.com/Robin329/kmsxx/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/Robin329/kmsxx/actions/workflows/c-cpp.yml)
 
 # kms++ - C++ library for kernel mode setting
 
