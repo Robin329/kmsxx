@@ -72,7 +72,7 @@ void init_pykmsbase(py::module& m)
 
 	py::class_<Connector, DrmPropObject, unique_ptr<Connector, py::nodelete>>(m, "Connector")
 		.def_property_readonly("fullname", &Connector::fullname)
-		.def("get_default_mode", &Connector::get_default_mode)
+		.def("get_default_mode", (Videomode(Connector::*)()const) & Connector::get_default_mode)
 		.def("get_current_crtc", &Connector::get_current_crtc)
 		.def("get_possible_crtcs", [](Connector* self) {
 			return convert_vector(self->get_possible_crtcs());
