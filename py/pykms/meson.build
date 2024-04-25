@@ -1,3 +1,10 @@
+
+# Python bindings require libutils for now.
+if not get_option('libutils')
+    pybindings_enabled = false
+    subdir_done()
+endif
+
 py3_dep = dependency('python3', required : get_option('pykms'))
 
 if py3_dep.found() == false
@@ -20,7 +27,7 @@ pykms_sources = files([
     'pykms.cpp',
 ])
 
-if get_option('utils')
+if get_option('libutils')
     pykms_sources += files([
         'pykmsutil.cpp',
     ])
@@ -38,7 +45,7 @@ pykms_deps = [
     pybind11_dep,
 ]
 
-if get_option('utils')
+if get_option('libutils')
     pykms_deps += [ libkmsxxutil_dep ]
 endif
 

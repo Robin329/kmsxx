@@ -24,14 +24,6 @@ endif
 
 add_project_arguments(cpp_arguments, language : 'cpp')
 
-link_arguments = []
-
-if get_option('static-libc')
-    link_arguments += ['-static-libgcc', '-static-libstdc++']
-endif
-
-add_global_link_arguments(link_arguments, language : 'cpp')
-
 libfmt_dep = dependency('fmt')
 
 libdrmomap_dep = dependency('libdrm_omap', required : get_option('omap'))
@@ -55,7 +47,7 @@ summary({
             'kms++utils library': libutils_enabled,
             'Python bindings': pybindings_enabled,
             'kmscube': kmscube_enabled,
-            'Utilities': libutils_enabled,
+            'Utilities': utils_enabled,
         },
         section : 'Configuration',
         bool_yn : true)
